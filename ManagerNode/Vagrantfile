@@ -14,5 +14,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "file", source: "id_rsa.pub", destination: "/tmp/"
   config.vm.provision "file", source: "ansadmin"    , destination: "/tmp/" 
   config.vm.provision "file", source: "init_script.sh", destination: "/tmp/"
+  config.vm.provision "file", source: "id_rsa.pub_manager", destination: "/tmp/"
+  config.vm.provision "file", source: "id_rsa_manager", destination: "/tmp/"
   config.vm.provision "shell",inline: "/bin/bash /tmp/init_script.sh"
 end
