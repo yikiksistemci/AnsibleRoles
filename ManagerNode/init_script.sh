@@ -16,16 +16,23 @@ install_ansible_package(){
 	echo "install ansible"
 	python3 -m pip install ansible==$ansible_version 
 	mkdir -p /etc/ansible
-	cp -a /vagrant/ansible.cfg /etc/
+	cp -a /vagrant/ansible.cfg /etc/ansible
 	touch /etc/ansible/hosts
 	echo "Ansible version"
-	ansible --version
+	/usr/local/bin/ansible --version
     echo "\ndone"
     
 }
-update_package
+
+add_ansible_node(){
+	echo -e "[testMachineHosts]\n192.168.1.22" > /etc/ansible/hosts
+	
+}
+
+#update_package
 install_common_package
 install_ansible_package
+add_ansible_node
 
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config

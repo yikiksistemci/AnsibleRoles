@@ -8,5 +8,9 @@ Vagrant.configure("2") do |config|
      vb.name = "ansible-node01"
      vb.cpus = 2
      vb.memory = "1500"
-  end  
+  end   
+  config.vm.provision "file", source: "id_rsa.pub", destination: "/tmp/"
+  config.vm.provision "file", source: "ansadmin"    , destination: "/tmp/" 
+  config.vm.provision "file", source: "init_script.sh", destination: "/tmp/"
+  config.vm.provision "shell",inline: "/bin/bash /tmp/init_script.sh"
 end
