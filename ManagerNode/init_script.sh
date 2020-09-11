@@ -43,7 +43,9 @@ echo -e "ansadminpass\nansadminpass" | passwd ansadmin
 setenforce 0 && systemctl stop firewalld && systemctl disable firewalld
 mkdir -p /home/ansadmin/.ssh && chmod 700 /home/ansadmin/.ssh && touch /home/ansadmin/.ssh/authorized_keys && chmod 600 /home/ansadmin/.ssh/authorized_keys  && chown -R ansadmin:ansadmin /home/ansadmin/.ssh 
 cat /tmp/id_rsa.pub > /home/ansadmin/.ssh/authorized_keys  
-ssh-keygen -t rsa -f /home/ansadmin/.ssh/id_rsa -q -P "" && chown -R ansadmin:ansadmin /home/ansadmin/.ssh 
+cp -a /tmp/id_rsa_manager /home/ansadmin/.ssh/id_rsa && chmod 600 /home/ansadmin/.ssh/id_rsa &&
+cp -a /tmp/id_rsa.pub_manager /home/ansadmin/.ssh/id_rsa.pub && chmod 600 /home/ansadmin/.ssh/id_rsa.pub && 
+chown -R ansadmin:ansadmin /home/ansadmin/.ssh 
 cp -a /tmp/ansadmin /etc/sudoers.d/
 pkexec chown root:root /etc/sudoers /etc/sudoers.d -R
 ### network devices list ####
