@@ -14,8 +14,14 @@ install_common_package(){
 
 install_ansible_package(){
 	echo "install ansible"
-	python3 -m pip install ansible==$ansible_version  
+	python3 -m pip install ansible==$ansible_version 
+	mkdir -p /etc/ansible
+	cp -a /vagrant/ansible.cfg /etc/
+	touch /etc/ansible/hosts
+	echo "Ansible version"
+	ansible --version
     echo "\ndone"
+    
 }
 update_package
 install_common_package
