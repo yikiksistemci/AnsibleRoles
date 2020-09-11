@@ -1,0 +1,12 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos/7"
+  config.vm.network "public_network", ip: "192.168.1.22"
+  config.vm.provider "virtualbox" do |vb|
+     vb.name = "ansible-node01"
+     vb.cpus = 2
+     vb.memory = "1500"
+  end  
+end
