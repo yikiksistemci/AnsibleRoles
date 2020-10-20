@@ -33,6 +33,8 @@ while getopts "m:l:p:add:" ops; do
 
     l) echo "todo";;
     m) echo "todo";;
+    p) echo "todo";;
+    add) echo "todo";;
 
     *)
       usage;;
