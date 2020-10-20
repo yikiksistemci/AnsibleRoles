@@ -1,6 +1,6 @@
 #!/bin/bash
 #####################################################################
-############### Vagrant + Infra-as-CodE + Ansible ###################
+############### Vagrant + Infra-as-Code + Ansible ###################
 ## Author: Yunus YASAR <yunus.yasar@pm.me>                         ##
 ## Licence: GNU GPLv3                                              ##
 ##                                                                 ##
